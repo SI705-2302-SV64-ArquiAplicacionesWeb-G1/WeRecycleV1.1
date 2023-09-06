@@ -2,6 +2,7 @@ package pe.edu.upc.aww.werecycle.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Useror")
@@ -17,9 +18,9 @@ public class Useror {
     private String userEmail;
     @Column(name = "userAge",nullable = false)
     private LocalDate userAge;
-    @OneToOne
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "idTypeUser")
-    private TypeUser typeUser;
+    private List<TypeUser> typeUser;
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication ubicationUser;
@@ -29,7 +30,7 @@ public class Useror {
     public Useror() {
     }
 
-    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, TypeUser typeUser, Ubication ubicationUser) {
+    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, List<TypeUser> typeUser, Ubication ubicationUser) {
         this.idUser = idUser;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -79,11 +80,11 @@ public class Useror {
         this.userAge = userAge;
     }
 
-    public TypeUser getTypeUser() {
+    public List<TypeUser> getTypeUser() {
         return typeUser;
     }
 
-    public void setTypeUser(TypeUser typeUser) {
+    public void setTypeUser(List<TypeUser> typeUser) {
         this.typeUser = typeUser;
     }
 

@@ -12,6 +12,9 @@ public class TypeUser {
     private String typeAccount;
     @Column(name = "stateType", nullable = false)
     private boolean stateType;
+    @ManyToOne
+    @JoinColumn(name = "idUser",nullable = false)
+    private Useror user;
 
     public TypeUser() {
     }
