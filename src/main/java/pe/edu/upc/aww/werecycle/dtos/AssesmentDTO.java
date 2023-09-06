@@ -1,32 +1,17 @@
-package pe.edu.upc.aww.werecycle.entities;
+package pe.edu.upc.aww.werecycle.dtos;
 
-import javax.lang.model.element.Name;
+import pe.edu.upc.aww.werecycle.entities.Publication;
+
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Assesment")
-public class Assessment {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class AssesmentDTO {
+
+
     private int idAssessment;
-@Column(name = "descriptionAssessment",nullable = false,length = 100)
     private String descriptionAssessment;
-@Column(name = "amountAssessment",nullable = false)
     private int amountAssessment;
-@OneToOne
-@JoinColumn(name = "idPublication")
+
     private Publication idPublication;
-
-    public Assessment() {
-    }
-
-    public Assessment(int idAssessment, String descriptionAssessment, int amountAssessment, Publication idPublication) {
-        this.idAssessment = idAssessment;
-        this.descriptionAssessment = descriptionAssessment;
-        this.amountAssessment = amountAssessment;
-        this.idPublication = idPublication;
-    }
-
 
     public int getIdAssessment() {
         return idAssessment;
