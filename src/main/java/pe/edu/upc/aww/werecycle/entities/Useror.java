@@ -18,19 +18,17 @@ public class Useror {
     private String userEmail;
     @Column(name = "userAge",nullable = false)
     private LocalDate userAge;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "idTypeUser")
-    private List<TypeUser> typeUser;
+    private TypeUser typeUser;
     @OneToOne
     @JoinColumn(name = "idUbication")
     private Ubication ubicationUser;
 
-
-
     public Useror() {
     }
 
-    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, List<TypeUser> typeUser, Ubication ubicationUser) {
+    public Useror(int idUser, String userName, String userPassword, String userEmail, LocalDate userAge, TypeUser typeUser, Ubication ubicationUser) {
         this.idUser = idUser;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -80,11 +78,11 @@ public class Useror {
         this.userAge = userAge;
     }
 
-    public List<TypeUser> getTypeUser() {
+    public TypeUser getTypeUser() {
         return typeUser;
     }
 
-    public void setTypeUser(List<TypeUser> typeUser) {
+    public void setTypeUser(TypeUser typeUser) {
         this.typeUser = typeUser;
     }
 

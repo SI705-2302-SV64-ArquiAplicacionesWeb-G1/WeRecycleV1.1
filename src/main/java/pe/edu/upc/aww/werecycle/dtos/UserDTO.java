@@ -5,6 +5,7 @@ import pe.edu.upc.aww.werecycle.entities.Ubication;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 public class UserDTO {
 

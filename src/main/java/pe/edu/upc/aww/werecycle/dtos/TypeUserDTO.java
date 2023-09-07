@@ -1,6 +1,10 @@
 package pe.edu.upc.aww.werecycle.dtos;
 
 
+import pe.edu.upc.aww.werecycle.entities.Useror;
+
+import javax.persistence.*;
+
 public class TypeUserDTO {
 
     private int idTypeUser;
