@@ -26,4 +26,5 @@ public class UserServiceImplement implements IUserService {
     public void delete(int idUser) {
         uR.deleteById(idUser);
     }
+
 }
